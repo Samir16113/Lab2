@@ -6,13 +6,13 @@ int binaryAddition(int a, int b) {
     int carry = 0, result = 0, place = 1;
 
     while (a > 0 || b > 0 || carry > 0) {
-        int bitA = a % 2;
-        int bitB = b % 2;
+        int bitA = a % 10;
+        int bitB = b % 10;
         result += (bitA ^ bitB ^ carry) * place;
         carry = (bitA & bitB) | (bitB & carry) | (bitA & carry);
-        a /= 2;
-        b /= 2;
-        place *= 2;
+        a /= 10;
+        b /= 10;
+        place *= 10;
     }
     return result;
 }
@@ -25,7 +25,7 @@ int binaryMultiplication(int a, int b) {
         }
 
         b /= 2;
-        place *= 2;
+        place *= 10;
     }
 
     return result;
